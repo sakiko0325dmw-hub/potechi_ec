@@ -11,13 +11,13 @@ body {
 }
 
 /* ===================================================
-   ヘッダー（PC版の基本スタイル）
+   ヘッダー（全ページ共通：PC版の基本スタイル）
 =================================================== */
 header {
   background-color: #fff9f1;
   width: 100%;
-  padding: 30px 0 20px; /* 上下に少しゆとりを持たせる */
-  border-bottom: 2px solid #5d4037; /* ★この行を追加！細い茶色い線を下に入れます */
+  padding: 30px 0 20px;
+  border-bottom: 2px solid #5d4037;
 }
 
 /* ヘッダーの中身を縦並びにして、すべて真ん中に寄せる */
@@ -25,8 +25,9 @@ header {
   max-width: 1200px;
   margin: 0 auto;
   display: flex;
-  flex-direction: column; /* ★これでロゴとメニューが縦並びになります */
-  align-items: center; /* ★これで左右のど真ん中に配置されます */
+  flex-direction: column; /* ロゴとメニューを縦並びに */
+  align-items: center; /* 左右のど真ん中に配置 */
+  justify-content: center;
   text-align: center;
 }
 
@@ -41,14 +42,17 @@ header {
 .logo p {
   font-size: 14px;
   color: #7b5e57;
-  margin-bottom: 25px; /* ロゴとメニューの間のすき間 */
+  margin-bottom: 25px;
 }
 
-/* メニュー全体の横並び設定 */
+/* メニュー全体の横並び・中央寄せ設定 */
 #nav-links {
   display: flex;
-  gap: 40px; /* メニュー同士の間隔 */
+  justify-content: center; /* ★PC版でしっかり中央に寄せるお守り */
+  gap: 40px;
   list-style: none;
+  padding: 0;
+  margin: 0;
 }
 
 #nav-links a {
@@ -59,7 +63,7 @@ header {
   letter-spacing: 1px;
 }
 
-/* PC版では三本線ボタンを絶対に隠す */
+/* PC版ではハンバーガーボタンを絶対に隠す */
 .hamburger {
   display: none;
   flex-direction: column;
@@ -82,17 +86,16 @@ header {
    メインビジュアル（スライダー対応）
 =================================================== */
 .hero {
-  position: relative; /* ★これがあることで、ボタンがここを基準に配置されます */
+  position: relative;
   width: 100%;
   max-width: 1440px;
-
   margin: 0 auto;
-  overflow: hidden; /* はみ出た横の画像を隠す */
+  overflow: hidden;
   background-color: #f5ede3;
 }
 .hero-slider {
   width: 100%;
-  height: 500px; /* ★ここに「height: 500px;」を引っ越しさせます！ */
+  height: 500px;
   z-index: 1;
   display: flex;
   gap: 20px;
@@ -100,51 +103,48 @@ header {
 }
 .slider-item {
   flex-shrink: 0;
-  width: 80%; /* 画面に対して80%のサイズ */
+  width: 80%;
   height: 100%;
   background-size: cover;
   background-position: center;
   border-radius: 12px;
 }
+
 /* ===================================================
    メインビジュアル下のテキスト（スライダーとNEWSの間）
 =================================================== */
 .hero-text {
-  margin: 40px auto; /* 💡 上下のスキマを少し広げてゆったりと */
+  padding: 60px 0;
+  margin: 0 auto;
   text-align: center;
   width: 90%;
-  max-width: 900px; /* 💡 文字が大きくなる分、全体の最大幅も少し広げます */
-  color: #7b6858;
+  max-width: 900px;
+  color: #5d4037;
 }
 
-/* テキスト内の見出し（いっしょにいるだけで〜） */
 .hero-text h2 {
-  font-size: 36px; /* 💡 28px → 36px にサイズアップしてドッシリ存在感を！ */
-  line-height: 1.6; /* 💡 大きくなった文字に合わせて行間をゆったり調整 */
+  font-size: 36px;
+  line-height: 1.6;
   margin-bottom: 20px;
   font-weight: bold;
-  color: #7b6858;
   text-shadow: none;
 }
 
-/* テキスト内の説明文（ぽてちのかわいい瞬間を〜） */
 .hero-text p {
-  font-size: 19px; /* 💡 16px → 19px にして、NEWSの文字（18px）に負けないサイズに */
-  line-height: 1.8; /* 💡 読みやすいように少し行間を広げます */
+  font-size: 19px;
+  line-height: 1.8;
   margin-bottom: 25px;
-  color: #7b6858;
   text-shadow: none;
 }
 
-/* ボタンの設定（文字に合わせて少しだけ頼もしく） */
 .hero-text .btn {
   display: inline-block;
-  padding: 14px 40px; /* 💡 ボタンのクッションも少しだけ大きくしてバランス調整 */
+  padding: 14px 40px;
   background-color: #7b6858;
   color: #ffffff;
   text-decoration: none;
   border-radius: 25px;
-  font-size: 17px; /* 💡 ボタンの中の文字も1サイズアップ */
+  font-size: 17px;
   font-weight: bold;
   box-shadow: 0 4px 10px rgba(123, 104, 88, 0.2);
   transition:
@@ -152,24 +152,19 @@ header {
     transform 0.3s;
 }
 
-/* ボタンにマウスを乗せたとき */
 .hero-text .btn:hover {
   background-color: #635041;
   transform: translateY(-2px);
 }
+
 /* ===================================================
    コンテンツエリア（NEWS・商品リスト）
 =================================================== */
 .news {
   width: 90%;
   max-width: 1130px;
-
-  /* 💡ここがポイント！外側の上の余白（margin-top）は 0 にして隙間を消します */
   margin: 0 auto 60px;
-
-  /* 💡内側の余白（padding）を上下 28px に揃えて、元の綺麗な細さに戻します */
   padding: 28px 40px;
-
   background: white;
   border-radius: 999px;
   box-sizing: border-box;
@@ -190,39 +185,26 @@ header {
 .item-list {
   display: flex;
   flex-wrap: wrap;
-  gap: 24px; /* 💡 カード同士の隙間を少しだけキュッと詰めます */
+  gap: 24px;
   width: 100%;
-  justify-content: space-between; /* 💡 4つのカードが画面の両端まで均等に広がる設定 */
+  justify-content: space-between;
 }
 
-/* ===================================================
-   Pick Up 商品カード本体（PC版：全体を自動でサイズアップ！）
-=================================================== */
 .item {
-  /* 💡 隙間24pxを引いた、4列で横幅いっぱいに「自動で最大まで広がる」計算式です */
   width: calc((100% - 72px) / 4);
-
-  /* 💡 【重要】固定のmax-widthを消したことで、画面幅に合わせてカード全体が自動でひと回り大きく育ちます！ */
-
   background: white;
-  padding: 24px; /* 💡 中の余白を広げて、カード全体の縦のボリュームもアップ */
+  padding: 24px;
   border-radius: 20px;
   margin-bottom: 24px;
   box-sizing: border-box;
 }
 
-/* ===================================================
-   商品画像（大きくなったカードに合わせて、縦横100%で拡大！）
-=================================================== */
 .item img {
   display: block;
   width: 100%;
-
-  /* 💡【重要】高さを280pxという「固定値」ではなく、横幅と同じにする魔法の命令に変更します！ */
   aspect-ratio: 1 / 1;
-  height: auto; /* 縦に無理やり引っ張られるのを防ぐ */
-
-  object-fit: cover; /* 枠いっぱいに隙間なく埋め込む */
+  height: auto;
+  object-fit: cover;
   object-position: center;
   border-radius: 20px;
   margin-bottom: 20px;
@@ -434,8 +416,7 @@ footer {
   background-image: url("images/bg-pattern.png");
   background-repeat: repeat;
   background-size: 400px auto;
-
-  padding-top: 40px; /* ★この行を追加！これでNEWSが40px下にズレます */
+  padding-top: 40px;
 }
 
 /* 背景をうっすら15%の薄さにして文字を読みやすくするマスク */
@@ -446,7 +427,7 @@ footer {
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: rgba(255, 249, 241, 0.85); /* 0.85＝15%の薄さ */
+  background-color: rgba(255, 249, 241, 0.85);
   z-index: 1;
 }
 
@@ -460,55 +441,51 @@ footer {
    スライダーの矢印ボタン
 =================================================== */
 .slider-btn {
-  position: absolute; /* ★完全に浮かせる設定 */
-  top: 50%; /* 上から50%の位置（中央） */
-  transform: translateY(
-    -50%
-  ); /* 自身の高さの半分だけ上に戻してピタッと中央へ */
-  z-index: 10; /* 文字や画像よりも一番手前に表示するお守り */
-  background: rgba(255, 255, 255, 0.8); /* 少し濃いめの白い丸背景 */
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 10;
+  background: rgba(255, 255, 255, 0.8);
   color: #7b6858;
   border: none;
-  width: 50px; /* ボタンのサイズ */
+  width: 50px;
   height: 50px;
-  border-radius: 50%; /* 綺麗な正円にする */
+  border-radius: 50%;
   font-size: 20px;
   font-weight: bold;
   cursor: pointer;
   display: flex;
   align-items: center;
   justify-content: center;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15); /* うっすら影をつけて見やすく */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
   transition:
     background 0.3s,
     color 0.3s;
 }
 
-/* マウスを乗せたときの色変更 */
 .slider-btn:hover {
   background: #7b6858;
   color: white;
 }
 
-/* 左ボタンを左端に固定（チラ見えしている画像の上に重なるくらいの位置） */
 .prev-btn {
-  left: 3%; /* 画面の左端から3%内側 */
+  left: 3%;
 }
-
-/* 右ボタンを右端に固定 */
 .next-btn {
-  right: 3%; /* 画面の右端から3%内側 */
+  right: 3%;
 }
 
 /* ===================================================
-   📱 スマホ用設定（画面幅: 768px以下）
+   📱 スマホ用設定（画面幅: 768px以下のみに効かせる！）
 =================================================== */
 @media (max-width: 768px) {
   header {
-    position: relative; /* 三本線を右上に配置する基準 */
-    flex-direction: column;
-    align-items: center;
+    position: relative;
     padding: 20px;
+  }
+
+  .header-container {
+    align-items: center;
   }
 
   /* スマホの時だけ三本線を表示して右上に固定 */
@@ -520,7 +497,7 @@ footer {
   }
 
   /* スマホの時だけメニューを画面の右外に隠す */
-  nav ul {
+  nav #nav-links {
     position: fixed;
     top: 0;
     right: -100%;
@@ -537,7 +514,7 @@ footer {
   }
 
   /* ボタンが押されてactiveクラスがついたら画面内に出す */
-  nav ul.active {
+  nav #nav-links.active {
     right: 0;
   }
 
@@ -568,126 +545,5 @@ footer {
     font-size: 28px;
     line-height: 1.4;
   }
-
-  /* NEWS */
-  .news {
-    width: 95%;
-    margin: 25px auto;
-    padding: 15px 20px;
-    font-size: 14px;
-  }
-
-  /* 商品エリア */
-  .pickup {
-    width: 95%;
-  }
-
-  .pickup h3 {
-    font-size: 28px;
-    text-align: center;
-  }
-
-  .item-list {
-    gap: 15px;
-  }
-  .item {
-    width: calc((100% - 15px) / 2);
-    padding: 15px;
-  }
-
-  /* ABOUTページ */
-  .about-hero {
-    max-width: 300px;
-    margin: 0 auto -140px;
-    position: relative;
-    z-index: 2;
-  }
-
-  .about-hero img {
-    width: 100%;
-    height: auto;
-    border-radius: 20px;
-    display: block;
-  }
-
-  .about-card {
-    padding: 100px 20px 30px;
-    border-radius: 30px;
-  }
-  .about-card h2 {
-    font-size: 26px;
-  }
-
-  .timeline-item {
-    flex-direction: column;
-    gap: 8px;
-  }
-  .time {
-    width: auto;
-    display: inline-block;
-  }
-
-  /* グッズ専用ページのスマホ2列化 */
-  .goods-page-grid {
-    grid-template-columns: repeat(2, 1fr) !important;
-    gap: 15px 10px !important;
-  }
-  .goods-page-grid .goods-info {
-    padding: 10px;
-  }
-  .goods-page-grid .goods-name {
-    font-size: 13px;
-    margin-bottom: 4px;
-  }
-  .goods-page-grid .goods-price {
-    font-size: 14px;
-    margin-bottom: 8px;
-  }
-  .goods-page-grid .btn-cart {
-    padding: 8px 0;
-    font-size: 11px;
-    border-radius: 4px;
-  }
-
-  /* フッター */
-  .footer-container {
-    flex-direction: column;
-    gap: 20px;
-    text-align: center;
-  }
-  .footer-right ul {
-    gap: 20px;
-  }
 }
 
-/* ===================================================
-   ABOUTページ：動画エリア
-=================================================== */
-.video-box {
-  margin-top: 50px;
-  margin-bottom: 50px;
-  text-align: center;
-}
-
-.video-box h3 {
-  font-size: 18px;
-  color: #7b6858;
-  margin-bottom: 20px;
-}
-
-.video-container {
-  position: relative;
-  width: 100%;
-  padding-top: 56.25%;
-  border-radius: 20px;
-  overflow: hidden;
-  box-shadow: 0 8px 25px rgba(163, 143, 122, 0.15);
-}
-
-.video-container iframe {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-}
