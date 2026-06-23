@@ -1,0 +1,449 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>GOODS - ぽてちのおみせ</title>
+    <!-- あなたの style.css を読み込む設定（ファイル名やパスが違ったら書き換えてね） -->
+    <link rel="stylesheet" href="style.css" />
+
+    <style>
+      /* 
+           【重要】
+           ちいかわマーケット風のPCでの見栄え（正方形画像やボタン）の基本設定だけここに残します。
+           スマホの「2列」の命令はすべて style.css に任せる形にしました！
+        */
+      main {
+        max-width: 1100px;
+        margin: 0 auto;
+        padding: 40px 20px;
+      }
+      .page-title {
+        text-align: center;
+        margin-bottom: 40px;
+      }
+      .page-title h2 {
+        font-size: 24px;
+        color: #5c4033;
+        margin-bottom: 5px;
+      }
+      .page-title p {
+        font-size: 14px;
+        color: #9c8a82;
+        margin: 0;
+      }
+      .goods-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+        gap: 30px 20px;
+      }
+      .goods-card {
+        background-color: #ffffff;
+        border-radius: 12px;
+        overflow: hidden;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.02);
+        display: flex;
+        flex-direction: column;
+        transition: transform 0.2s;
+      }
+      .goods-card:hover {
+        transform: translateY(-5px);
+      }
+      .goods-image {
+        width: 100%;
+        aspect-ratio: 1 / 1;
+        background-color: #e6dfd5; /* ぽてちの背景に合わせた淡い色にしました */
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: #7b6858;
+        font-size: 14px;
+      }
+      .goods-image img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+      .goods-info {
+        padding: 15px;
+        display: flex;
+        flex-direction: column;
+        flex-grow: 1;
+      }
+      .goods-name {
+        font-size: 14px;
+        font-weight: bold;
+        margin: 0 0 8px 0;
+        color: #7b6858;
+        line-height: 1.4;
+      }
+      .goods-price {
+        font-size: 16px;
+        font-weight: bold;
+        color: #c8ab8d; /* あなたのstyle.cssのボタン色に合わせました♪ */
+        margin-top: auto;
+        margin-bottom: 12px;
+      }
+      .btn-cart {
+        display: block;
+        width: 100%;
+        padding: 10px 0;
+        background-color: #c8ab8d;
+        color: #ffffff;
+        text-align: center;
+        text-decoration: none;
+        border-radius: 6px;
+        font-size: 13px;
+        font-weight: bold;
+        border: none;
+        cursor: pointer;
+        transition: background-color 0.2s;
+      }
+      .btn-cart:hover {
+        background-color: #b39578;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- ヘッダー（あなたのサイトのデザインに合わせました） -->
+    <header>
+      <div class="logo">
+        <h1>Potechi</h1>
+        <p>ぽてちのおみせ</p>
+      </div>
+      <nav>
+        <div class="hamburger" id="hamburger">
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
+
+        <ul id="nav-links">
+          <li><a href="index.html">HOME</a></li>
+          <li><a href="about.html">ABOUT</a></li>
+          <li><a href="goods.html">GOODS</a></li>
+          <li><a href="news.html">NEWS</a></li>
+          <li><a href="contact.html">CONTACT</a></li>
+          <li style="font-weight: bold; margin-left: 20px">
+            <a
+              href="cart.html"
+              style="color: #c8ab8d; text-decoration: none; font-weight: bold"
+            >
+              🛒 カート ( <span id="cart-count">0</span> )
+            </a>
+          </li>
+        </ul>
+      </nav>
+    </header>
+
+    <!-- メインコンテンツ -->
+    <main>
+      <div class="page-title">
+        <h2>GOODS</h2>
+        <p>ぽてちのかわいいオリジナルグッズたち</p>
+      </div>
+
+      <!-- グッズ一覧（ここを「goods-grid goods-page-grid」に変更済みです！） -->
+      <div class="goods-grid goods-page-grid">
+        <!-- 1. アクセサリー -->
+        <div class="goods-card">
+          <div class="goods-image">
+            <img
+              src="images/mezirushi-keyholder.jpg"
+              alt="ぽてちめじるしアクセサリー"
+              style="width: 100%; object-fit: cover"
+            />
+          </div>
+          <div class="goods-info">
+            <p class="goods-name">ぽてちめじるしアクセサリー</p>
+            <p class="goods-price">
+              ¥300 <span style="font-size: 10px; color: #aaa">(税込)</span>
+            </p>
+            <button class="btn-cart">カートに入れる</button>
+          </div>
+        </div>
+
+        <!-- 2. シール -->
+        <div class="goods-card">
+          <div class="goods-image">
+            <img
+              src="images/pukkuri-sticker.jpg"
+              alt="ぽてちぷっくりシール"
+              style="width: 100%; object-fit: cover"
+            />
+          </div>
+          <div class="goods-info">
+            <p class="goods-name">ぽてちぷっくりシール</p>
+            <p class="goods-price">
+              ¥500 <span style="font-size: 10px; color: #aaa">(税込)</span>
+            </p>
+            <button class="btn-cart">カートに入れる</button>
+          </div>
+        </div>
+
+        <!-- 3. ぬいぐるみ -->
+        <div class="goods-card">
+          <div class="goods-image">
+            <img
+              src="images/tibinui.png"
+              alt="ぽてちちびっこぬいぐるみ"
+              style="width: 100%; object-fit: cover"
+            />
+          </div>
+          <div class="goods-info">
+            <p class="goods-name">ぽてちちびっこぬいぐるみ</p>
+            <p class="goods-price">
+              ¥2,500 <span style="font-size: 10px; color: #aaa">(税込)</span>
+            </p>
+            <button class="btn-cart">カートに入れる</button>
+          </div>
+        </div>
+
+        <!-- 4. アクスタ -->
+        <div class="goods-card">
+          <div class="goods-image">
+            <img
+              src="images/akusuta.jpg"
+              alt="ぽてちアクリルスタンド"
+              style="width: 100%; object-fit: cover"
+            />
+          </div>
+          <div class="goods-info">
+            <p class="goods-name">ぽてちアクリルスタンド</p>
+            <p class="goods-price">
+              ¥1,500 <span style="font-size: 10px; color: #aaa">(税込)</span>
+            </p>
+            <button class="btn-cart">カートに入れる</button>
+          </div>
+        </div>
+
+        <!-- 5. クッション -->
+        <div class="goods-card">
+          <div class="goods-image">
+            <img
+              src="images/face_cushion.jpg"
+              alt="ぽてちの「もちもち」フェイスクッション"
+              style="width: 100%; object-fit: cover"
+            />
+          </div>
+          <div class="goods-info">
+            <p class="goods-name">ぽてちの「もちもち」フェイスクッション</p>
+            <p class="goods-price">
+              ¥3,200 <span style="font-size: 10px; color: #aaa">(税込)</span>
+            </p>
+            <button class="btn-cart">カートに入れる</button>
+          </div>
+        </div>
+
+        <!-- 6. 巾着ポーチ -->
+        <div class="goods-card">
+          <div class="goods-image">
+            <img
+              src="images/kintyaku_pochi.png"
+              alt="巾着ポーチ"
+              style="width: 100%; object-fit: cover"
+            />
+          </div>
+          <div class="goods-info">
+            <p class="goods-name">ぽてちのふわふわ巾着ポーチ</p>
+            <p class="goods-price">
+              ¥1,650 <span style="font-size: 10px; color: #aaa">(税込)</span>
+            </p>
+            <button class="btn-cart">カートに入れる</button>
+          </div>
+        </div>
+
+        <!-- 7. ルームウェア -->
+        <div class="goods-card">
+          <div class="goods-image">
+            <img
+              src="images/room_wear.png"
+              alt="ぽてちのふわふわルームウェア"
+              style="width: 100%; object-fit: cover"
+            />
+          </div>
+          <div class="goods-info">
+            <p class="goods-name">ぽてちのふわふわルームウェア</p>
+            <p class="goods-price">
+              ¥2,200 <span style="font-size: 10px; color: #aaa">(税込)</span>
+            </p>
+            <button class="btn-cart">カートに入れる</button>
+          </div>
+        </div>
+
+        <!-- 8. グラスカップ -->
+        <div class="goods-card">
+          <div class="goods-image">
+            <img
+              src="images/glass.png"
+              alt="ぽてちのグラスカップ"
+              style="width: 100%; object-fit: cover"
+            />
+          </div>
+          <div class="goods-info">
+            <p class="goods-name">ぽてちのグラスカップ</p>
+            <p class="goods-price">
+              ¥990 <span style="font-size: 10px; color: #aaa">(税込)</span>
+            </p>
+            <button class="btn-cart">カートに入れる</button>
+          </div>
+        </div>
+
+        <!-- 9. コンパクトミラー -->
+        <div class="goods-card">
+          <div class="goods-image">
+            <img
+              src="images/mirror.png"
+              alt="ぽてちのコンパクトミラー"
+              style="width: 100%; object-fit: cover"
+            />
+          </div>
+          <div class="goods-info">
+            <p class="goods-name">ぽてちのコンパクトミラー</p>
+            <p class="goods-price">
+              ¥880 <span style="font-size: 10px; color: #aaa">(税込)</span>
+            </p>
+            <button class="btn-cart">カートに入れる</button>
+          </div>
+        </div>
+
+        <!-- 10. 前髪クリップ -->
+        <div class="goods-card">
+          <div class="goods-image">
+            <img
+              src="images/maegami__clip.jpg"
+              alt="ぽてちのふかふか前髪クリップ（2個セット）"
+              style="width: 100%; object-fit: cover"
+            />
+          </div>
+          <div class="goods-info">
+            <p class="goods-name">ぽてちの前髪クリップ（2個セット）</p>
+            <p class="goods-price">
+              ¥770 <span style="font-size: 10px; color: #aaa">(税込)</span>
+            </p>
+            <button class="btn-cart">カートに入れる</button>
+          </div>
+        </div>
+
+        <!-- 11. トートバッグ -->
+        <div class="goods-card">
+          <div class="goods-image">
+            <img
+              src="images/tote_bag.png"
+              alt="ぽてちトートバッグ"
+              style="width: 100%; object-fit: cover"
+            />
+          </div>
+          <div class="goods-info">
+            <p class="goods-name">ぽてちトートバッグ</p>
+            <p class="goods-price">
+              ¥1,320 <span style="font-size: 10px; color: #aaa">(税込)</span>
+            </p>
+            <button class="btn-cart">カートに入れる</button>
+          </div>
+        </div>
+
+        <!-- 12. ヘアゴム　-->
+        <div class="goods-card">
+          <div class="goods-image">
+            <img
+              src="images/heagomu.png"
+              alt="おにぎりぽてちヘアゴム"
+              style="width: 100%; object-fit: cover"
+            />
+          </div>
+          <div class="goods-info">
+            <p class="goods-name">おにぎりぽてちヘアゴム</p>
+            <p class="goods-price">
+              ¥440 <span style="font-size: 10px; color: #aaa">(税込)</span>
+            </p>
+            <button class="btn-cart">カートに入れる</button>
+          </div>
+        </div>
+      </div>
+    </main>
+    <footer>
+      <div class="footer-container">
+        <div class="footer-left">
+          <h2>POTECHI</h2>
+          <p>&copy; 2026 potechi_hamu. All Rights Reserved.</p>
+        </div>
+
+        <div class="footer-right">
+          <ul>
+            <li><a href="index.html">トップ</a></li>
+            <li><a href="about.html">ぽてちについて</a></li>
+            <li><a href="goods.html">グッズショップ</a></li>
+          </ul>
+        </div>
+      </div>
+    </footer>
+
+    <style>
+      .btn-cart.added {
+        background-color: #8daea0 !important; /* 優しいグリーン */
+      }
+    </style>
+
+    <script>
+      // 1. ページを開いたときに、すでにカートに入っている分を思い出す
+      let cart = JSON.parse(localStorage.getItem("potechi_cart")) || [];
+
+      // 2. 画面の部品を見つける
+      const cartButtons = document.querySelectorAll(".btn-cart");
+      const cartCountDisplay = document.getElementById("cart-count");
+
+      // 最初に見つかったカートの個数をヘッダーに表示する
+      cartCountDisplay.textContent = cart.length;
+
+      // 3. 12個のグッズカードそれぞれに名前と価格のデータを紐づけて、クリックイベントを作る
+      cartButtons.forEach(function (button) {
+        // ボタンの親要素（goods-infoやgoods-card）からグッズ名と価格を自動で読み取る
+        const card = button.closest(".goods-card");
+        const goodsName = card.querySelector(".goods-name").textContent.trim();
+        const goodsPrice = card
+          .querySelector(".goods-price")
+          .textContent.replace("(税込)", "")
+          .trim();
+
+        // 💡 もしすでにカートに入っている商品なら、最初から「入りました」状態にしておく
+        const isAlreadyInCart = cart.some((item) => item.name === goodsName);
+        if (isAlreadyInCart) {
+          button.textContent = "入りました！🐹";
+          button.classList.add("added");
+        }
+
+        // ボタンが押されたときの仕事
+        button.addEventListener("click", function () {
+          if (button.classList.contains("added")) {
+            return; // すでに入ってたら何もしない
+          }
+
+          // ① カートの配列に新しいグッズの情報を追加する
+          const newItem = { name: goodsName, price: goodsPrice };
+          cart.push(newItem);
+
+          // ② ブラウザの記憶（LocalStorage）に保存する
+          localStorage.setItem("potechi_cart", JSON.stringify(cart));
+
+          // ③ 画面の数字を書き換える
+          cartCountDisplay.textContent = cart.length;
+
+          // ④ ボタンの見た目を変える
+          button.textContent = "入りました！🐹";
+          button.classList.add("added");
+        });
+      });
+
+      // 🍔 ハンバーガーメニューを開閉するJS
+      const hamburger = document.getElementById("hamburger");
+      const navLinks = document.getElementById("nav-links");
+
+      hamburger.addEventListener("click", () => {
+        // ボタンとメニューに「active」クラスをつけたり消したりする
+        hamburger.classList.toggle("active");
+        navLinks.classList.toggle("active");
+      });
+    </script>
+  </body>
+</html>
